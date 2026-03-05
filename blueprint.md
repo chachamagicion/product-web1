@@ -4,13 +4,17 @@
 
 This project is a simple Lotto Number Generator web application. It allows users to generate six unique random numbers between 1 and 45. The application also features a theme switcher to toggle between light and dark modes.
 
-## Current Plan: Implement Dark Mode
+## Deployment Strategy
 
-The user has requested to add a dark mode feature to the application. This will involve the following changes:
+The primary deployment method for this project is through Cloudflare Pages, which is connected to the GitHub repository `https://github.com/chachamagicion/product-web1`.
 
-*   **`index.html`**: Add a theme switcher button.
-*   **`style.css`**: Add styles for the dark mode and the theme switcher.
-*   **`main.js`**: Implement the logic to toggle the theme and save the user's preference in local storage.
+To deploy the latest changes, the code must be pushed to the `main` branch of the GitHub repository. Cloudflare will automatically detect these changes and deploy the new version of the site.
+
+**Default Command:** When asked to "deploy", the default action will be to push the latest code to the `main` branch on GitHub (e.g., `git push origin main`).
+
+## Current Plan
+
+No active plan. Ready for user's request.
 
 ## Implemented Features
 
