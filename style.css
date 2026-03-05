@@ -1,22 +1,23 @@
 /* 기본 스타일 (화이트 모드) */
 :root {
-    --background-color: #f0f0f0;
-    --text-color: #333;
-    --container-bg-color: #fff;
+    --background-color: #f8f9fa; /* 밝은 회색 */
+    --text-color: #212529; /* 어두운 회색 */
+    --container-bg-color: #ffffff;
     --button-bg-color: #007bff;
-    --button-text-color: #fff;
-    --lotto-ball-bg-color: #eee;
-    --lotto-ball-text-color: #333;
+    --button-text-color: #ffffff;
+    --menu-item-bg-color: #e9ecef; /* 약간 밝은 회색 */
+    --menu-item-text-color: #495057; /* 조금 더 어두운 회색 */
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* 다크 모드 스타일 */
 [data-theme="dark"] {
-    --background-color: #333;
-    --text-color: #f0f0f0;
-    --container-bg-color: #444;
-    --button-bg-color: #0056b3;
-    --lotto-ball-bg-color: #555;
-    --lotto-ball-text-color: #f0f0f0;
+    --background-color: #212529; 
+    --text-color: #f8f9fa;
+    --container-bg-color: #343a40; 
+    --button-bg-color: #0d6efd; /* 더 밝은 파란색 */
+    --menu-item-bg-color: #495057;
+    --menu-item-text-color: #f8f9fa;
 }
 
 body {
@@ -32,76 +33,105 @@ body {
     max-width: 600px;
     margin: 0 auto;
     background-color: var(--container-bg-color);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
 }
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
 }
 
 h1 {
     margin: 0;
+    font-size: 2em;
 }
 
 #theme-toggle {
-    padding: 8px 12px;
+    padding: 8px 16px;
     border: none;
     background-color: var(--button-bg-color);
     color: var(--button-text-color);
-    border-radius: 5px;
+    border-radius: 20px;
     cursor: pointer;
+    transition: background-color 0.2s;
 }
 
-.lotto-section {
+#theme-toggle:hover {
+    opacity: 0.9;
+}
+
+.menu-section {
     text-align: center;
 }
 
-.lotto-numbers-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin: 20px 0;
-}
-
-.lotto-ball {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: var(--lotto-ball-bg-color);
-    color: var(--lotto-ball-text-color);
+.menu-result-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.2em;
-    font-weight: bold;
+    min-height: 150px; /* 최소 높이 설정 */
+    margin: 30px 0;
 }
 
+.menu-item {
+    padding: 30px 50px;
+    background-color: var(--menu-item-bg-color);
+    color: var(--menu-item-text-color);
+    border-radius: 10px;
+    font-size: 2em;
+    font-weight: bold;
+    box-shadow: var(--card-shadow);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* 추첨 중 애니메이션 */
+.menu-item.thinking {
+    font-size: 2.5em;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 0.2; }
+    50% { opacity: 1; }
+    100% { opacity: 0.2; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+
 #generate-btn {
-    padding: 10px 20px;
+    padding: 15px 30px;
     border: none;
     background-color: var(--button-bg-color);
     color: var(--button-text-color);
-    border-radius: 5px;
+    border-radius: 25px;
     cursor: pointer;
-    font-size: 1em;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+#generate-btn:hover {
+    transform: translateY(-2px);
 }
 
 footer {
-    margin-top: 30px;
+    margin-top: 40px;
     padding-top: 20px;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid #dee2e6;
 }
 
-#contact-form-section h2 {
+#contact-form-section h2, #comments-section h2 {
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .form-group {
@@ -116,10 +146,12 @@ footer {
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: .5rem;
-    border: 1px solid #ccc;
+    padding: .75rem;
+    border: 1px solid #ced4da;
     border-radius: 4px;
-    box-sizing: border-box; /* 추가 */
+    box-sizing: border-box; 
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
 button[type="submit"] {
@@ -134,4 +166,9 @@ button[type="submit"] {
     border: none;
     cursor: pointer;
     width: 100%;
+    font-weight: bold;
+}
+
+#comments-section {
+    margin-top: 30px;
 }
