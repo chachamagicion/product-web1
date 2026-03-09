@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.getElementById('theme-toggle');
     const additionalMenusContainer = document.querySelector('.additional-menus-container');
     const additionalMenuItems = document.querySelectorAll('.additional-menu-item');
+    const brandRecommendations = document.getElementById('brand-recommendations');
 
     const menuOptions = [
         "치킨", "피자", "삼겹살", "된장찌개", "김치찌개", "떡볶이", "초밥", "파스타", 
@@ -17,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "감자전", "백반", "오므라이스", "샌드위치", "리조또", "스테이크", "샐러드", 
         "회", "우동", "라멘", "소바", "깐풍기", "깐쇼새우", "마파두부", "양장피", 
         "쌀국수", "분짜", "반쎄오", "팟타이", "카오팟", "똠얌꿍", "푸팟퐁커리", 
-        "탄두리치킨", "타코", "브리또", "케밥", "샥슈카", "훠궈", "규카츠", "규동", 
+        "탄두리치킨", "타코", "브리또", "케밥", "샥슈카", "궈궈", "규카츠", "규동", 
         "야끼우동", "김치볶음밥", "퀘사디아", "짜파게티", "샤브샤브", "낙곱새", 
         "곱창전골", "모듬초밥", "콩국수", "그릭요거트", "요아정", "차돌짬뽕", "라볶이", 
         "서브웨이", "감자탕", "고등어구이", "간장계란현미밥", "호박죽", "매운갈비찜", 
@@ -33,7 +34,9 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     generateBtn.addEventListener('click', () => {
+        // Reset previous recommendations
         additionalMenusContainer.style.display = 'none';
+        brandRecommendations.innerHTML = '';
         const allMenuItems = [menuResult, ...additionalMenuItems];
         
         let dots = 1;
@@ -53,8 +56,27 @@ document.addEventListener('DOMContentLoaded', () => {
             const shuffledMenus = [...menuOptions].sort(() => 0.5 - Math.random());
             const selectedMenus = shuffledMenus.slice(0, 4);
 
-            menuResult.textContent = selectedMenus[0];
+            // Display main menu
+            const mainMenu = selectedMenus[0];
+            menuResult.textContent = mainMenu;
 
+            // Display brand recommendations if available
+            if (brands[mainMenu]) {
+                const brandList = document.createElement('ul');
+                brandList.className = 'brand-list';
+                brands[mainMenu].forEach(brandName => {
+                    const listItem = document.createElement('li');
+                    listItem.className = 'brand-item';
+                    listItem.textContent = brandName;
+                    brandList.appendChild(listItem);
+                });
+                const brandTitle = document.createElement('h4');
+                brandTitle.textContent = `${mainMenu} 브랜드 추천`;
+                brandRecommendations.appendChild(brandTitle);
+                brandRecommendations.appendChild(brandList);
+            }
+
+            // Display additional menus
             additionalMenuItems.forEach((item, index) => {
                 item.textContent = selectedMenus[index + 1];
             });
