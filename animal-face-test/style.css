@@ -1,0 +1,97 @@
+body {
+    background-color: #f0f2f5;
+    color: #333;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 500px;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0 0 20px 0;
+    font-size: 2.2em;
+    font-weight: 700;
+    color: #1c1e21;
+}
+
+.test-section h2 {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.test-section p {
+    margin-bottom: 30px;
+    color: #606770;
+    font-size: 1.1em;
+}
+
+.start-btn {
+    padding: 15px 35px;
+    border: none;
+    background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1.3em;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(79, 172, 254, 0.4);
+}
+
+.start-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(79, 172, 254, 0.6);
+}
+
+#webcam-container {
+    margin: 30px auto;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%; /* 원형으로 변경 */
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transform: scaleX(-1); /* 좌우 반전 */
+}
+
+#label-container {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+#label-container div {
+    width: 90%;
+    padding: 18px;
+    border-radius: 12px;
+    background-color: #f7f7f7;
+    color: #333;
+    font-size: 1.3em;
+    font-weight: 500;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    text-align: left;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+#label-container div.primary {
+    background-image: linear-gradient(to right, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-weight: bold;
+    transform: scale(1.08);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.5);
+}

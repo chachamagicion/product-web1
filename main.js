@@ -1,24 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const themeToggle = document.getElementById('theme-toggle');
+    const menuResult = document.getElementById('menu-result');
     const generateBtn = document.getElementById('generate-btn');
-    const menuResultContainer = document.getElementById('menu-result');
+    const themeToggle = document.getElementById('theme-toggle');
 
-    // 저녁 메뉴 리스트
-    const dinnerMenus = [
-        // 한식
-        "김치찌개", "된장찌개", "부대찌개", "비빔밥", "불고기", "제육볶음",
-        "삼겹살", "갈비찜", "닭갈비", "순두부찌개", "해물파전", "잡채",
-        // 중식
-        "짜장면", "짬뽕", "탕수육", "마파두부", "양장피", "깐풍기",
-        // 일식
-        "초밥", "라멘", "돈까스", "우동", "회덮밥", "가츠동",
-        // 양식
-        "피자", "파스타", "스테이크", "리조또", "햄버거", "시저 샐러드",
-        // 분식
-        "떡볶이", "순대", "튀김", "김밥", "라면", 
-        // 기타
-        "치킨", "족발", "보쌈", "곱창", "쌀국수", "카레"
+    const menuOptions = [
+        "치킨", "피자", "삼겹살", "된장찌개", "김치찌개", "떡볶이", "초밥", 
+        "파스타", "햄버거", "부대찌개", "냉면", "비빔밥", "카레", "돈까스",
+        "짜장면", "짬뽕", "탕수육", "마라탕", "양꼬치", "족발", "보쌈"
     ];
+
+    generateBtn.addEventListener('click', () => {
+        // 추첨 중 효과
+        menuResult.textContent = '.';
+        menuResult.classList.add('thinking');
+        let dots = 1;
+        const interval = setInterval(() => {
+            menuResult.textContent = '.'.repeat(dots);
+            dots = (dots % 3) + 1;
+        }, 300);
+
+        // 1.5초 후 결과 표시
+        setTimeout(() => {
+            clearInterval(interval);
+            menuResult.classList.remove('thinking');
+            const randomIndex = Math.floor(Math.random() * menuOptions.length);
+            menuResult.textContent = menuOptions[randomIndex];
+        }, 1500);
+    });
 
     // 테마 변경 기능
     themeToggle.addEventListener('click', () => {
@@ -40,26 +48,4 @@ document.addEventListener('DOMContentLoaded', () => {
         document.documentElement.setAttribute('data-theme', 'dark');
         themeToggle.textContent = '라이트 모드';
     }
-
-    // 메뉴 추첨 기능
-    generateBtn.addEventListener('click', () => {
-        // 결과를 표시하기 전에 "추첨 중..." 메시지 표시
-        menuResultContainer.innerHTML = '';
-        const thinkingElement = document.createElement('div');
-        thinkingElement.className = 'menu-item thinking';
-        thinkingElement.textContent = '...';
-        menuResultContainer.appendChild(thinkingElement);
-
-        // 1초 후에 결과 표시
-        setTimeout(() => {
-            const randomIndex = Math.floor(Math.random() * dinnerMenus.length);
-            const selectedMenu = dinnerMenus[randomIndex];
-
-            menuResultContainer.innerHTML = ''; // "추첨 중..." 메시지 삭제
-            const menuItem = document.createElement('div');
-            menuItem.className = 'menu-item';
-            menuItem.textContent = selectedMenu;
-            menuResultContainer.appendChild(menuItem);
-        }, 1000); // 1초 지연
-    });
 });
