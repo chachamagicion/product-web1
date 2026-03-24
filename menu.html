@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메뉴 추천 - 오늘 저녁 뭐 먹지?</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="menu.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Analytics & Scripts from main page -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4424585063052814" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4FQ4J12JVN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4FQ4J12JVN');
+    </script>
+</head>
+<body>
+    <button id="theme-toggle">다크 모드</button>
+
+    <div class="container">
+        <nav class="top-nav">
+            <a href="index.html" class="logo">오늘 저녁 뭐 먹지?</a>
+        </nav>
+
+        <header class="hero-section">
+            <h1>메뉴 탐색</h1>
+            <p>상황과 취향에 맞는 메뉴를 찾아보세요.</p>
+        </header>
+
+        <main>
+            <div class="menu-component">
+                <!-- Category Filter Section -->
+                <section class="category-section">
+                  <h2 class="section-title">상황별 / 종류별</h2>
+                  <div class="category-tabs" id="category-tabs">
+                    <button class="tab active" data-filter="all">전체</button>
+                    <button class="tab" data-filter="lunch">점심</button>
+                    <button class="tab" data-filter="dinner">저녁</button>
+                    <button class="tab" data-filter="snack">야식</button>
+                    <button class="tab" data-filter="solo">혼밥</button>
+                    <button class="tab" data-filter="date">데이트</button>
+                    <button class="tab" data-filter="party">회식</button>
+                  </div>
+                </section>
+              
+                <!-- Roulette CTA -->
+                <div class="cta-container">
+                  <button class="roulette-btn" onclick="window.location.href='index.html'">
+                    <span class="icon">🥁</span> 오늘 저녁 메뉴 룰렛 돌리기
+                  </button>
+                </div>
+              
+                <!-- Delivery Menu Grid Section -->
+                <section class="delivery-section">
+                  <h2 class="section-title">배달 메뉴 추천</h2>
+                  <div class="menu-grid">
+                    <!-- Menu Item Cards -->
+                    <div class="menu-card">
+                      <div class="card-icon">🧈</div>
+                      <div class="card-content">
+                        <h3 class="card-title">버터떡</h3>
+                        <p class="card-desc">겉바속쫀 버터떡</p>
+                      </div>
+                    </div>
+              
+                    <div class="menu-card">
+                      <div class="card-icon">🧆</div>
+                      <div class="card-content">
+                        <h3 class="card-title">두쫀쿠</h3>
+                        <p class="card-desc">쫀득볼, 쫀득쿠키</p>
+                      </div>
+                    </div>
+              
+                    <div class="menu-card">
+                      <div class="card-icon">🥡</div>
+                      <div class="card-content">
+                        <h3 class="card-title">중식</h3>
+                        <p class="card-desc">짜장면, 짬뽕, 탕수육, 마라탕</p>
+                      </div>
+                    </div>
+              
+                    <div class="menu-card">
+                      <div class="card-icon">🍗</div>
+                      <div class="card-content">
+                        <h3 class="card-title">치킨</h3>
+                        <p class="card-desc">고추바사삭, 숯불치킨, 파닭, 닭강정</p>
+                      </div>
+                    </div>
+              
+                    <div class="menu-card">
+                      <div class="card-icon">🍔</div>
+                      <div class="card-content">
+                        <h3 class="card-title">패스트푸드</h3>
+                        <p class="card-desc">햄버거, 에그드랍, 써브웨이, 감자튀김</p>
+                      </div>
+                    </div>
+              
+                    <div class="menu-card">
+                      <div class="card-icon">🍢</div>
+                      <div class="card-content">
+                        <h3 class="card-title">분식</h3>
+                        <p class="card-desc">떡볶이, 김밥, 순대, 튀김, 라볶이</p>
+                      </div>
+                    </div>
+              
+                    <div class="menu-card">
+                      <div class="card-icon">🍱</div>
+                      <div class="card-content">
+                        <h3 class="card-title">한식</h3>
+                        <p class="card-desc">김치찌개, 부대찌개, 순댓국, 뼈해장국</p>
+                      </div>
+                    </div>
+              
+                    <div class="menu-card">
+                      <div class="card-icon">🍲</div>
+                      <div class="card-content">
+                        <h3 class="card-title">찜·탕</h3>
+                        <p class="card-desc">찜닭, 갈비찜, 아구찜, 샤브샤브, 김치찜</p>
+                      </div>
+                    </div>
+              
+                    <div class="menu-card">
+                      <div class="card-icon">🍽️</div>
+                      <div class="card-content">
+                        <h3 class="card-title">돈까스·회</h3>
+                        <p class="card-desc">치즈돈까스, 카이센동, 육회, 연어회</p>
+                      </div>
+                    </div>
+              
+                    <div class="menu-card">
+                      <div class="card-icon">🍕</div>
+                      <div class="card-content">
+                        <h3 class="card-title">피자</h3>
+                        <p class="card-desc">콤비네이션, 페퍼로니, 불고기, 포테이토</p>
+                      </div>
+                    </div>
+              
+                    <div class="menu-card">
+                      <div class="card-icon">🥢</div>
+                      <div class="card-content">
+                        <h3 class="card-title">아시안 메뉴</h3>
+                        <p class="card-desc">쌀국수, 팟타이, 분짜, 월남쌈, 카오팟</p>
+                      </div>
+                    </div>
+              
+                    <div class="menu-card">
+                      <div class="card-icon">🥩</div>
+                      <div class="card-content">
+                        <h3 class="card-title">고기</h3>
+                        <p class="card-desc">삼겹살, 목살, 갈비, 항정살, 소곱창</p>
+                      </div>
+                    </div>
+              
+                    <div class="menu-card">
+                      <div class="card-icon">🐷</div>
+                      <div class="card-content">
+                        <h3 class="card-title">족발·보쌈</h3>
+                        <p class="card-desc">족발, 보쌈, 막국수, 냉채족발, 불족발</p>
+                      </div>
+                    </div>
+              
+                    <div class="menu-card">
+                      <div class="card-icon">🍝</div>
+                      <div class="card-content">
+                        <h3 class="card-title">양식</h3>
+                        <p class="card-desc">파스타, 스테이크, 리조또, 감바스</p>
+                      </div>
+                    </div>
+              
+                    <div class="menu-card">
+                      <div class="card-icon">☕</div>
+                      <div class="card-content">
+                        <h3 class="card-title">카페·디저트</h3>
+                        <p class="card-desc">케이크, 빙수, 요아정</p>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+        </main>
+
+        <footer class="site-footer">
+            <p>&copy; 2024 오늘 저녁 뭐 먹지?. All Rights Reserved.</p>
+            <nav>
+                <a href="index.html">홈</a> |
+                <a href="menu.html">메뉴 탐색</a> |
+                <a href="about.html">소개</a>
+            </nav>
+        </footer>
+    </div>
+
+    <!-- Reuse main logic for theme toggle -->
+    <script>
+        // Simple Theme Toggle Logic Inline for this page
+        const themeToggle = document.getElementById('theme-toggle');
+        
+        // Check saved theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeToggle.textContent = '라이트 모드';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                document.documentElement.removeAttribute('data-theme');
+                themeToggle.textContent = '다크 모드';
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeToggle.textContent = '라이트 모드';
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // Tab Selection Logic
+        const tabs = document.querySelectorAll('.tab');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all
+                tabs.forEach(t => t.classList.remove('active'));
+                // Add to clicked
+                tab.classList.add('active');
+                
+                // Note: In a real app, you would filter the grid here.
+                // For UI demo, we just toggle visual state.
+            });
+        });
+    </script>
+</body>
+</html>
